@@ -1,0 +1,11 @@
+CREATE TABLE startup_logs(createdAtMs bigint,appId string,tenantId string,deviceId string,appVersion string,appChannel string,appPlatform string,osType string,deviceStyle string,country string,province string,ipAddress string,network string,carrier string,brand string,screenSize string) PARTITIONED BY (ym string, day string,hm string) ROW FORMAT delimited fields terminated by ',';
+CREATE TABLE error_logs(createdAtMs bigint,appId string,tenantId string,deviceId string,appVersion string,appChannel string,appPlatform string,osType string,deviceStyle string,errorBrief string,errorDetail string) PARTITIONED BY (ym string, day string,hm string) ROW FORMAT delimited fields terminated by ',';
+CREATE TABLE event_logs(createdAtMs bigint,appId string,tenantId string,deviceId string,appVersion string,appChannel string,appPlatform string,osType string,deviceStyle string,eventId string,eventDurationSecs bigint,paramKeyValueMap Map<string,string>) PARTITIONED BY (ym string, day string,hm string) ROW FORMAT delimited fields terminated by ',';
+CREATE TABLE page_logs(createdAtMs bigint,appId string,tenantId string,deviceId string,appVersion string,appChannel string,appPlatform string,osType string,deviceStyle string,pageViewCntInSession int,pageId string,visitIndex int,nextPage string,stayDurationSecs bigint) PARTITIONED BY (ym string, day string,hm string) ROW FORMAT delimited fields terminated by ',';
+CREATE TABLE usage_logs(createdAtMs bigint,appId string,tenantId string,deviceId string,appVersion string,appChannel string,appPlatform string,osType string,deviceStyle string,singleUseDurationSecs bigint,singleUploadTraffic bigint,singleDownloadTraffic bigint)PARTITIONED BY (ym string, day string,hm string) ROW FORMAT delimited fields terminated by ',';
+
+CREATE TABLE startup_logs_json(json string) PARTITIONED BY (ym string, day string,hm string);
+CREATE TABLE error_logs_json(json string) PARTITIONED BY (ym string, day string,hm string);
+CREATE TABLE event_logs_json(json string) PARTITIONED BY (ym string, day string,hm string);
+CREATE TABLE page_logs_json(json string) PARTITIONED BY (ym string, day string,hm string);
+CREATE TABLE usage_logs_json(json string) PARTITIONED BY (ym string, day string,hm string);
