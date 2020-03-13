@@ -17,7 +17,7 @@ public class UploadUtil {
         try{
             // 1 设置请求的URL
 // URL url = new URL("http://hadoop102:8080/app_logs/coll/index");// 生产地址
-            URL url = new URL("http://localhost:8080/coll");// 测试地址
+            URL url = new URL("http://node4:8080/coll");// 测试地址
 
 
             // 2 获取连接
