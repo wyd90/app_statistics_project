@@ -251,7 +251,10 @@ public class GenerateData {
 
             //单次使用时长(秒数),指一次启动内应用在前台的持续时长
             appUsageLog.setSingleUseDurationSecs(singleUseDurationSecsS[random.nextInt(singleUseDurationSecsS.length)]);
-
+            //单次使用上传流量（Byte）
+            appUsageLog.setSingleUploadTraffic(Long.valueOf(Math.abs(new Random().nextInt())));
+            //单次使用下载流量（Byte）
+            appUsageLog.setSingleDownloadTraffic(Long.valueOf(Math.abs(new Random().nextInt())));
             result[i] = appUsageLog;
         }
 
